@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dialesg7vgcxq"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_b61ig"]
+[ext_resource type="PackedScene" uid="uid://dqm57rqwlgaa5" path="res://in-game/buildings/unit_spawn_building.tscn" id="2_ius33"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_yq4l5"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_b61ig")
+
+[node name="UnitSpawnBuilding" parent="." instance=ExtResource("2_ius33")]
+position = Vector2(2, -5)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_yq4l5")
+
+[node name="UnitsGroup" type="Node2D" parent="."]
