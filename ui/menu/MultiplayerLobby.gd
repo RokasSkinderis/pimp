@@ -30,7 +30,8 @@ func peer_disconnected(id):
 
 func connected_to_server():
 	print("Player connected to server")
-	send_player_info.rpc_id(1, $NameInput.text, multiplayer.get_unique_id())
+#replace JOIN string with $NameInput.text
+	send_player_info.rpc_id(1, 'JOIN', multiplayer.get_unique_id())
 
 func connection_failed():
 	print("Player connection failed")
@@ -38,7 +39,7 @@ func connection_failed():
 @rpc("any_peer")
 func send_player_info(name, id):
 	if !GameManager.players.has(id):
-		GameManager.players[id] = {
+		GameManager.players[str(id)] = {
 			"name": name,
 			"id": id
 		}
@@ -63,7 +64,8 @@ func host_game():
 	print("Waiting for players to be ready")
 func _on_host_button_down():
 	host_game()
-	send_player_info($NameInput.text, multiplayer.get_unique_id())	
+# replace HOST string with $NameInput.text
+	send_player_info('HOST', multiplayer.get_unique_id())	
 	
 func join_game():
 	peer = ENetMultiplayerPeer.new()

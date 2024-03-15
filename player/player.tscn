@@ -8,13 +8,19 @@ properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/replication_mode = 1
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="Node2D"]
 script = ExtResource("1_b61ig")
+
+[node name="PlayerAuthority" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_yq4l5")
+
+[node name="PlayerName" type="Label" parent="."]
+offset_left = -57.0
+offset_top = -91.0
+offset_right = 60.0
+offset_bottom = -68.0
 
 [node name="UnitSpawnBuilding" parent="." instance=ExtResource("2_ius33")]
 position = Vector2(2, -5)
-
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-replication_config = SubResource("SceneReplicationConfig_yq4l5")
 
 [node name="UnitsGroup" type="Node2D" parent="."]

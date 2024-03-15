@@ -1,17 +1,8 @@
-extends CharacterBody2D
+extends Node2D
 
 
-const SPEED = 300.0
-
+# Called when the node enters the scene tree for the first time.
 func _ready():
-	$MultiplayerSynchronizer.set_multiplayer_authority(str(name).to_int())
-
-#func _physics_process(delta):
-	#if $MultiplayerSynchronizer.get_multiplayer_authority() == multiplayer.get_unique_id():
-		#var direction = Input.get_axis("ui_left", "ui_right")
-		#if direction:
-			#velocity.x = direction * SPEED
-		#else:
-			#velocity.x = move_toward(velocity.x, 0, SPEED)
-		#move_and_slide()
-
+	print('Manager', GameManager.players)
+	self.set_multiplayer_authority(self.name.to_int(), true)
+	$PlayerName.text = GameManager.players[str(self.get_multiplayer_authority())].name
