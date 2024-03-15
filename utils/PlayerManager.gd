@@ -7,6 +7,8 @@ func _ready():
 	for player in GameManager.players:
 		var currentPlayer = playerScene.instantiate()
 		currentPlayer.name = str(GameManager.players[player].id)
+		print('ID', GameManager.players[player].id)
+		#currentPlayer.set_multiplayer_authority(GameManager.players[player].id)
 		GameManager.players[player].units = {
 			"current": 0,
 			"max": 10

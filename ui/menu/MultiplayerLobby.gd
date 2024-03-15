@@ -2,6 +2,7 @@ extends Control
 
 @export var address = "127.0.0.1"
 @export var port = 8910
+@export var playerScene: PackedScene
 
 var peer
 
@@ -43,6 +44,7 @@ func send_player_info(name, id):
 			"name": name,
 			"id": id
 		}
+
 	if multiplayer.is_server():
 		for i in GameManager.players:
 			send_player_info.rpc(GameManager.players[i].name, i)
@@ -62,6 +64,7 @@ func host_game():
 	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
 	multiplayer.set_multiplayer_peer(peer)
 	print("Waiting for players to be ready")
+	
 func _on_host_button_down():
 	host_game()
 # replace HOST string with $NameInput.text
