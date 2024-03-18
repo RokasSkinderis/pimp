@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dialesg7vgcxq"]
 
-[ext_resource type="PackedScene" uid="uid://dqm57rqwlgaa5" path="res://in-game/buildings/unit_spawn_building.tscn" id="2_ius33"]
+[ext_resource type="PackedScene" uid="uid://dqm57rqwlgaa5" path="res://in-game/buildings/spawn_building.tscn" id="1_33drc"]
 
 [sub_resource type="GDScript" id="GDScript_5jjtf"]
 script/source = "extends Node2D
@@ -11,6 +11,7 @@ func _enter_tree():
 	self.set_multiplayer_authority(self.name.to_int(), true)
 
 func _ready():
+	print(	multiplayer.get_peers())
 	$PlayerName.text = GameManager.players[str(self.get_multiplayer_authority())].name
 "
 
@@ -23,7 +24,7 @@ offset_top = -91.0
 offset_right = 60.0
 offset_bottom = -68.0
 
-[node name="UnitSpawnBuilding" parent="." instance=ExtResource("2_ius33")]
+[node name="UnitSpawnBuilding" parent="." instance=ExtResource("1_33drc")]
 position = Vector2(2, -5)
 
 [node name="UnitsGroup" type="Node2D" parent="."]

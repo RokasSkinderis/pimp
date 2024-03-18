@@ -13,7 +13,7 @@ func _ready():
 	spawn_timer.start()
 
 func _on_spawn_timer_timeout():
-	if GameManager.players[str(multiplayer.get_unique_id())].units.current < GameManager.players[str(multiplayer.get_unique_id())].units.max:
+	if GameManager.players[str(get_multiplayer_authority())].units.current < GameManager.players[str(get_multiplayer_authority())].units.max:
 		spawn_unit()
 	else:
 		spawn_timer.stop()

@@ -1,18 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://dqm57rqwlgaa5"]
 
-[ext_resource type="Texture2D" uid="uid://b2og7p07nm1up" path="res://assets/icon.svg" id="1_3680m"]
-[ext_resource type="Script" path="res://in-game/buildings/unit_spawn_building.gd" id="1_j5e61"]
+[ext_resource type="Script" path="res://in-game/buildings/spawn_building.gd" id="1_awd3x"]
+[ext_resource type="Texture2D" uid="uid://b2og7p07nm1up" path="res://assets/icon.svg" id="2_j1nfq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_63o2k"]
 size = Vector2(120, 126)
 
-[node name="UnitSpawnBuilding" type="StaticBody2D"]
+[node name="SpawnBuilding" type="StaticBody2D"]
 position = Vector2(1, 2)
-script = ExtResource("1_j5e61")
+script = ExtResource("1_awd3x")
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(0, 1)
-texture = ExtResource("1_3680m")
+texture = ExtResource("2_j1nfq")
 
 [node name="CollisionBody" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)

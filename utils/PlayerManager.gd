@@ -16,7 +16,7 @@ func _ready():
 func initialize_player_unit_object(player):
 	GameManager.players[player].units = {
 		"current": 0,
-		"max": 10
+		"max": 2
 	}
 	
 func initialize_player_resource_object(player):

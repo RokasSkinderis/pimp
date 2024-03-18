@@ -3,6 +3,7 @@ extends Control
 @export var address = "127.0.0.1"
 @export var port = 8910
 @export var playerScene: PackedScene
+var players_loaded = 0
 
 var peer
 
@@ -52,8 +53,12 @@ func send_player_info(name, id):
 @rpc("any_peer", "call_local")
 func start_game():
 	var gameScene = load("res://in-game/game.tscn").instantiate()
-	get_tree().root.add_child(gameScene)
-	self.hide()
+	# Check if all palyers are there
+	if GameManager.players.size() == 2:
+		get_tree().root.add_child(gameScene)
+		self.hide()
+
+	
 	
 func host_game():
 	peer = ENetMultiplayerPeer.new()
