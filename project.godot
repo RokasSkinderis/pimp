@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Pimp"
+run/main_scene="res://ui/menu/multiplayer_lobby.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://assets/icon.svg"
 

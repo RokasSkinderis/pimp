@@ -1,10 +1,21 @@
 [gd_scene load_steps=3 format=3 uid="uid://dialesg7vgcxq"]
 
-[ext_resource type="Script" path="res://player/player.gd" id="1_b61ig"]
 [ext_resource type="PackedScene" uid="uid://dqm57rqwlgaa5" path="res://in-game/buildings/unit_spawn_building.tscn" id="2_ius33"]
 
+[sub_resource type="GDScript" id="GDScript_5jjtf"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _enter_tree():
+	self.set_multiplayer_authority(self.name.to_int(), true)
+
+func _ready():
+	$PlayerName.text = GameManager.players[str(self.get_multiplayer_authority())].name
+"
+
 [node name="Player" type="Node2D"]
-script = ExtResource("1_b61ig")
+script = SubResource("GDScript_5jjtf")
 
 [node name="PlayerName" type="Label" parent="."]
 offset_left = -57.0

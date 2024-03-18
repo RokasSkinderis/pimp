@@ -6,7 +6,7 @@ var speed = 300
 
 func _enter_tree():
 	set_multiplayer_authority(get_parent().get_multiplayer_authority())
-	$Label.text= str(get_multiplayer_authority())
+	$Label.text = str(get_multiplayer_authority())
 	
 
 func _ready():

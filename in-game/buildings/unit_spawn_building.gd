@@ -25,5 +25,5 @@ func spawn_unit():
 	var unit_spawn_position = position + Vector2(randomPositionX, randomPositionY)
 	var new_unit = unit.instantiate()
 	new_unit.position = unit_spawn_position
-	GameManager.players[str(multiplayer.get_unique_id())].units.current += 1
+	GameManager.players[str(get_multiplayer_authority())].units.current += 1
 	get_node("../UnitsGroup").add_child(new_unit, true)

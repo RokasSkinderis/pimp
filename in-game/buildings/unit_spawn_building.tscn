@@ -21,7 +21,7 @@ shape = SubResource("RectangleShape2D_63o2k")
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Authority" type="Label" parent="."]
-offset_left = -54.0
-offset_top = 71.0
-offset_right = 60.0
-offset_bottom = 101.0
+offset_left = -57.0
+offset_top = -94.0
+offset_right = 57.0
+offset_bottom = -64.0

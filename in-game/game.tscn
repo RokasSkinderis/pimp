@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://utils/PlayerManager.gd" id="1_gjb5s"]
 [ext_resource type="Texture2D" uid="uid://brbfcty47ayl2" path="res://assets/tile.png" id="3_rqmlu"]
 [ext_resource type="Texture2D" uid="uid://b1bpt24oex6gc" path="res://assets/grass.png" id="4_tbdce"]
+[ext_resource type="PackedScene" uid="uid://dqbci7fcm2o87" path="res://in-game/ui/UI.tscn" id="5_lk073"]
 [ext_resource type="Script" path="res://in-game/CameraMovement2D.gd" id="5_1gfud"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4k0cc"]
@@ -54,3 +55,5 @@ script = ExtResource("5_1gfud")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 size = Vector2i(1920, 1080)
+
+[node name="UI" parent="." instance=ExtResource("5_lk073")]
